@@ -8,8 +8,7 @@ import pandas as pd
 from collections import OrderedDict
 from templates.clf_task_template import template_1
 from templates.clf_task_template_short import template_2
-# from qwen_api import response
-from qwen_1__8_api import response
+from api.qwen_1__8B_api import response
 
 
 random.seed(42)
@@ -61,7 +60,7 @@ if __name__ == '__main__':
             lines = lines[:args.num_instructions]
     print("Total instruction nums: ", len(lines))
 
-    output_path = os.path.join(args.batch_dir, f"is_clf_or_not_test.jsonl") #output file
+    output_path = os.path.join(args.batch_dir, f"is_clf_or_not.jsonl") #output file
     existing_requests = {}
     if os.path.exists(output_path):
         with open(output_path) as fin:

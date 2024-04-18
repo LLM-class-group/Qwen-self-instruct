@@ -6,12 +6,12 @@ import re
 import argparse
 import pandas as pd
 from collections import OrderedDict
-from templates.instance_gen_template import output_first_template_for_clf, input_first_template_for_gen
-from qwen_1__8_api import response
+from templates.instance_gen_template_short import output_first_template_for_clf, input_first_template_for_gen
+from api.qwen_7B_api import response
 
 random.seed(42)
 
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
+os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
 
 def parse_args():
@@ -62,9 +62,11 @@ def parse_args():
     return parser.parse_args()
 
 
-def filter_no_endword(result, endword="Endinstance"):
-    if endword in result:
-        return result[:result.index(endword)]
+def filter_no_endword(result, endword1="End",endword2="end"):
+    if endword1 in result:
+        return result[:result.index(endword1)]
+    elif endword2 in result:
+        return result[:result.index(endword2)]
     else:
         return None
 
@@ -72,7 +74,7 @@ def filter_no_endword(result, endword="Endinstance"):
 if __name__ == '__main__':
     args = parse_args()
 
-    with open(os.path.join(args.batch_dir, args.input_file)) as fin:
+    with open(os.path.join(args.batch_dir, args.input_file)) as fin: #is_clf_or_not.jsonl
         lines = fin.readlines()
         if args.num_instructions is not None:
             lines = lines[:args.num_instructions]
@@ -81,7 +83,7 @@ if __name__ == '__main__':
             data = json.loads(line)
             tasks.append(data)
     task_clf_types = {}
-    with open(os.path.join(args.batch_dir, "is_clf_or_not.jsonl")) as fin:
+    with open(os.path.join(args.batch_dir, args.input_file)) as fin:
         for line in fin:
             data = json.loads(line)
             task_clf_types[data["instruction"]] = data["is_classification"].strip() in [

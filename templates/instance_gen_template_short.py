@@ -120,9 +120,6 @@ Class label: No
 Sentence: The leaders of the Department of Homeland Security now appear before 88 committees and subcommittees of Congress.
 Question: How often are they required to appear?
 
-Task: Tell me what's the second largest city by population in Canada.
-Class label: Montreal
-
 Task: Classifying different types of mathematical equations, such as linear, and quadratic equations, based on the coefficients and terms in the equation.
 Class label: Linear equation
 Equation: y = 2x + 5
@@ -142,16 +139,6 @@ Task:'''
 
 input_first_template_for_gen = '''Come up with examples for the following tasks. Try to generate multiple examples when possible. If the task doesn't require additional input, you can generate the output directly.
 
-Task: Which exercises are best for reducing belly fat at home?
-Output:
-- Lying Leg Raises
-- Leg In And Out
-- Plank
-- Side Plank
-- Sit-ups
-
-End.
-
 Task: Extract all the country names in the paragraph, list them separated by commas.
 Input: Dr. No is the sixth novel by the English author Ian Fleming to feature his British Secret Service agent James Bond. Written at Fleming's Goldeneye estate in Jamaica, it was first published in the United Kingdom by Jonathan Cape in 1958. In the novel Bond looks into the disappearance in Jamaica of two fellow MI6 operatives who had been investigating Doctor No. Bond travels to No's Caribbean island and meets Honeychile Rider, who is there to collect shells. They are captured and taken to a luxurious facility carved into a mountain. The character of Doctor No, the son of a German missionary and a Chinese woman, was influenced by Sax Rohmer's Fu Manchu stories. Dr. No was the first of Fleming's novels to face widespread negative reviews in Britain, but it was received more favourably in the United States.
 Output: English, British, Jamaica, the United Kingdom, German, Chinese, Britain, the United States.
@@ -169,21 +156,9 @@ Output: [-4, 2, 5, 5, 10, 92, 92, 101]
 
 End.
 
-Task: Sort the given list ascendingly. 
-Input: [9.99, 10, -5, -1000, 5e6, 999]
-Output: [-1000, -5, 9.99, 10, 999, 5e6]
-
-End.
-
 Task: Suggest a better and more professional rephrasing of the following sentence.
 Input: This house is surprisingly not constructed very well, and you probably need more money to fix it after you buy it. If you ask me, I would suggest you to consider other candidates.
 Output: This house does not seem to be constructed well, so you may need to spend more money to fix it after you purchase it. I would suggest that you look at other properties.
-
-End.
-
-Task: Suggest a better and more professional rephrasing of the following sentence.
-Input: Just so you know, we did an experiment last week and found really surprising results - language model can improve itself!
-Output: Our experiments last week demonstrated surprising results, proving that the language model can improve itself.
 
 End.
 
@@ -194,39 +169,11 @@ Output:
 38390 - (19392 + 11078) = 38390 - 30470 = 7920. 
 So, in 2018, there were 7920 more deaths by firearm than in 2010.
 
-End.
-
-Task: Write Python code to solve this leetcode problem.
-Input: You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-Output:
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        carry = 0
-        root = n = ListNode(0)
-        while l1 or l2 or carry:
-            v1 = v2 = 0
-            if l1:
-                v1 = l1.val
-                l1 = l1.next
-            if l2:
-                v2 = l2.val
-                l2 = l2.next
-            carry, val = divmod(v1+v2+carry, 10)
-            n.next = ListNode(val)
-            n = n.next
-        return root.next
-
-End.       
+End.     
 
 Task: Solve the equation and find the value of X. Show your steps.
 Input: 10X + 5 = 10
 Output: 10X = 5,  X = 0.5
-
-End.
-
-Task: Solve the equation and find the value of X. Show your steps.
-Input: X + Y + 120 = 100
-Output: X + Y = -20, X = -20 - Y
 
 End.
 
@@ -243,12 +190,6 @@ End.
 Task: Select the oldest person from the given list.
 Input: George Washington, Confucius, Michael Jordan, Michelangelo
 Output: Confucious
-
-End.
-
-Task: Select the oldest person from the given list.
-Input: Alan Turing, Geoffrey Hinton, Yann LeCun, Yoshua Bengio
-Output: Alan Turing
 
 End.
 

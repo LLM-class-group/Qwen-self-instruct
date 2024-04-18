@@ -10,7 +10,7 @@ import pandas as pd
 from multiprocessing import Pool
 from functools import partial
 from rouge_score import rouge_scorer
-from qwen_api import response
+from api.qwen_1__8B_api import response
 
 
 random.seed(4)
@@ -60,7 +60,7 @@ def post_process_response(response):
         if len(inst.split()) <= 3 or len(inst.split()) > 150:
             continue
         # filter based on keywords that are not suitable for language models.
-        if any(find_word_in_string(word, inst) for word in ["image", "images", "graph", "graphs", "picture", "pictures", "file", "files", "map", "maps", "draw", "plot", "go to", "-", "#1"]):
+        if any(find_word_in_string(word, inst) for word in ["logo","image", "images", "graph", "graphs", "picture", "pictures", "file", "files", "map", "maps", "draw", "plot", "go to", "-", "#1"]):
             continue
         # filter those starting with punctuation
         if inst[0] in string.punctuation:
@@ -132,7 +132,8 @@ if __name__ == "__main__":
                 instruction_info = json.loads(line)
                 machine_instructions.append(instruction_info["instruction"])
                 request_idx = instruction_info["request_idx"] + 1
-        print(f"Loaded {len(machine_instructions)} machine-generated instructions" )
+        print(f"Loaded {len(machine_instructions)
+                        } machine-generated instructions")
 
     # similarities = {}
     scorer = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=False)

@@ -100,7 +100,7 @@ def parse_input_output(response_text):
         inst_input = ""
         inst_output = response_text.strip()
     # to avoid the case multiple input/output pairs are generated
-    if re.findall(r"Input\s*\d*\s*:", inst_output):
+    if re.findall(r"Input\s*\d*\s*:", inst_output): #检查输出部分是否包含类似Input1:的字符串
         inst_output = re.split(r"Input\s*\d*\s*:", inst_output)[0].strip()
     # remove the prefix "Input:" from the string
     inst_input = re.sub(r"^Input\s*\d*\s*:", "", inst_input).strip()
@@ -153,7 +153,12 @@ def parse_instances_for_generation_task(raw_text, instruction):
         inst_input, inst_output = parse_input_output(raw_text)
         instances.append((instruction.strip(), inst_input.strip(), inst_output.strip()))
     else:
-        return []
+        inst_input = ""
+        inst_output = raw_text
+        if inst_output.startswith(":"):
+            inst_output = inst_output.lstrip(":").strip()
+        instances.append((instruction.strip(), inst_input.strip(), inst_output.strip()))
+
     
     instances = filter_invalid_instances(instances)
     instances = filter_duplicate_instances(instances)
@@ -191,7 +196,7 @@ if __name__ == "__main__":
     training_instances = []
     
     generated_tasks = []
-    for instance_file in args.instance_files:
+    for instance_file in args.instance_files: # machine_generated_instances
         with open(instance_file) as fin:
             for line in fin:
                 generated_tasks.append(json.loads(line))
@@ -226,6 +231,7 @@ if __name__ == "__main__":
 
     os.makedirs(args.output_dir, exist_ok=True) #print all instances
     with open(os.path.join(args.output_dir, "all_generated_instances.jsonl"), "w") as fout:
+        print(fout.name)
         for instance in training_instances:
             fout.write(json.dumps({
                 "instruction": instance[0],

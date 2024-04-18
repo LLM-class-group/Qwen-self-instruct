@@ -1,5 +1,6 @@
 from modelscope import AutoModelForCausalLM, AutoTokenizer
 import subprocess
+import torch
 
 # execute `nvidia-smi`, query the free memory of GPU 0 (MB)
 result = subprocess.run(['nvidia-smi', '--query-gpu=memory.free', '--format=csv,nounits,noheader', '--id=0'],
@@ -7,7 +8,7 @@ result = subprocess.run(['nvidia-smi', '--query-gpu=memory.free', '--format=csv,
 free_memory = result.stdout.strip().split('\n')[0]
 print(f"GPU 0 free memory: {free_memory} MiB")
 
-cuda_available = int(free_memory) > 3072  # 3GB
+cuda_available = int(free_memory) > 1536  # 1.5GB
 
 device = "cuda" if cuda_available else "cpu"
 print(f"Using device: {device}")
@@ -15,7 +16,8 @@ print(f"Using device: {device}")
 parameter = 0.5
 model_name = f"qwen/Qwen1.5-{parameter}B"
 
-model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name, torch_dtype=torch.bfloat16).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 print(f"Model {model_name} loaded in {device} successfully!")
