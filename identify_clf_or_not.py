@@ -7,14 +7,19 @@ import argparse
 import pandas as pd
 from collections import OrderedDict
 from templates.clf_task_template import template_1
-from qwen_api import response
+from templates.clf_task_template_short import template_2
+# from qwen_api import response
+from qwen_1__8_api import response
 
 
 random.seed(42)
 
+sample_prompts = ""
+
 
 templates = {
-    "template_1": template_1
+    "template_1": template_1,
+    "template_2": template_2
 }
 
 def parse_args():
@@ -54,9 +59,9 @@ if __name__ == '__main__':
         lines = fin.readlines()
         if args.num_instructions is not None:
             lines = lines[:args.num_instructions]
-    print("instruction nums: ", len(lines))
+    print("Total instruction nums: ", len(lines))
 
-    output_path = os.path.join(args.batch_dir, f"is_clf_or_not.jsonl") #output file
+    output_path = os.path.join(args.batch_dir, f"is_clf_or_not_test.jsonl") #output file
     existing_requests = {}
     if os.path.exists(output_path):
         with open(output_path) as fin:
@@ -68,14 +73,10 @@ if __name__ == '__main__':
                     pass
         print(f"Loaded {len(existing_requests)} existing instructions that have been classified before.")
 
-    success = 0 #number of instructions that is classified successfully
-    yes_correct = 0 #number of classification instructions that is classified correctly
-    no_correct = 0 #number of not classification instructions that is classified correctly
     yes_success = 0 # identified yes classification instructions
     no_success = 0 # identified no classification instructions
     idx = 0
 
-    # strange_prompts = ""
 
     progress_bar = tqdm.tqdm(total=len(lines))
     with open(output_path, "w") as fout:
@@ -100,52 +101,38 @@ if __name__ == '__main__':
                 for prompt in prompts:
                     # print("-----------prompt is: ---------------\n",prompt)
                     idx += 1
-                    result = response(prompt, 30)
-                    # if(idx <= 5): strange_prompts += "prompt"+str(idx)+ ":\n"+prompt+"\n\n\n"
+                    if idx < 5:
+                        sample_prompts += f"prompt {idx}:" + prompt +"\n"
+                    result = response(prompt, 5)
                     if result.strip():
                         first_result_word = result.split()[0]
                     else:
                         first_result_word = "empty result!"
-                    # print("-----------classification result of : ---------------\n",result)
-                    if (first_result_word == "no" or first_result_word == "No" or first_result_word == "NO" or first_result_word == "negative" or first_result_word == "Negative" or first_result_word == "NEGATIVE" or first_result_word == "不是" or first_result_word == "false"): 
-                        success += 1
-                        if(idx <= 148): 
-                            no_correct += 1
-                            no_success += 1
-                        else:
-                            yes_success += 1    
-                    if (first_result_word == "yes" or first_result_word == "Yes" or first_result_word == "YES" or first_result_word == "positive" or first_result_word == "Positive" or first_result_word == "POSITIVE" or first_result_word == "是" or first_result_word == "true"): 
-                        success += 1
-                        if (idx > 148): 
-                            yes_correct += 1
-                            yes_success += 1
-                        else:
-                            no_success += 1
-                    print("-----------first word of instruction {}: ---------------\n".format(idx),first_result_word)
-                    results.append(first_result_word)
+                    if (first_result_word == "no" or first_result_word == "No" or first_result_word == "NO" or first_result_word =="not" or first_result_word =="Not" or first_result_word =="NOT" or first_result_word == "negative" or first_result_word == "Negative" or first_result_word == "NEGATIVE" or first_result_word == "不是" or first_result_word == "false"): 
+                        no_success += 1
+                        result="no"
+                    elif (first_result_word == "yes" or first_result_word == "Yes" or first_result_word == "YES" or first_result_word == "positive" or first_result_word == "Positive" or first_result_word == "POSITIVE" or first_result_word == "是" or first_result_word == "true"): 
+                        yes_success += 1
+                        result="yes"
+                    else: result=None
+                    print("-----------classify result {}: ---------------\n".format(idx),result)
+                    results.append(result)
                 for i in range(len(batch)):
                     data = batch[i]
                     if results[i] is not None:
-                        data["is_classification"] = results[i]
-                    else:
-                        data["is_classification"] = ""
-                    data = {
+                        data = {
                         "instruction": data["instruction"],
-                        "is_classification": data["is_classification"]
-                    }
-                    data = OrderedDict(
+                        "is_classification": results[i]
+                        }
+                        data = OrderedDict(
                         (k, data[k]) for k in
                         ["instruction", "is_classification"]
-                    )
-                    fout.write(json.dumps(data, ensure_ascii=False) + "\n")
+                        )
+                        fout.write(json.dumps(data, ensure_ascii=False) + "\n")
             progress_bar.update(len(batch))
 
-    print(f"Processed {idx} instructions, {success} of them are classified successfully.")
-    print(f"Identification rate: {success / idx}")
-    epsilon = 0.0001
-    print(f"Classification problem correct rate: {yes_correct / (yes_success + epsilon)}")
-    print(f"Not classification problem correct rate: {no_correct / (no_success + epsilon)}")
-    # with open("../clf_prompt_1-5.txt", "w") as file:
-    #      print("open file successfully!")
-    #      file.write(strange_prompts)
+    print(f"Processed {idx} instructions, {yes_success+no_success} of them are classified successfully.")
+    print(f"Identification rate: {(yes_success+no_success) / idx}")
+
+
 

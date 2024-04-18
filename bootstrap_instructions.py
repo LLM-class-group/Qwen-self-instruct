@@ -10,22 +10,12 @@ import pandas as pd
 from multiprocessing import Pool
 from functools import partial
 from rouge_score import rouge_scorer
-from modelscope import AutoModelForCausalLM, AutoTokenizer
-
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
-device = "cuda"  # the device to load the model onto
-model_name = "qwen/Qwen1.5-0.5B"
-max_new_tokens = 1024
-
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    device_map="auto"
-)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+from qwen_api import response
 
 
 random.seed(4)
+
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
 def encode_prompt(prompt_instructions, classification=False):
@@ -56,13 +46,21 @@ def post_process_response(response):
     for inst in raw_instructions:
         inst = re.sub(r"\s+", " ", inst).strip()
         inst = inst.strip().capitalize()
+        new_inst = ""
+        for char in inst:
+            if char == '.' or char == '?':
+                new_inst = new_inst + char
+                break
+            else:
+                new_inst = new_inst + char
+        inst = new_inst
         if inst == "":
             continue
         # filter out too short or too long instructions
         if len(inst.split()) <= 3 or len(inst.split()) > 150:
             continue
         # filter based on keywords that are not suitable for language models.
-        if any(find_word_in_string(word, inst) for word in ["image", "images", "graph", "graphs", "picture", "pictures", "file", "files", "map", "maps", "draw", "plot", "go to"]):
+        if any(find_word_in_string(word, inst) for word in ["image", "images", "graph", "graphs", "picture", "pictures", "file", "files", "map", "maps", "draw", "plot", "go to", "-", "#1"]):
             continue
         # filter those starting with punctuation
         if inst[0] in string.punctuation:
@@ -73,27 +71,6 @@ def post_process_response(response):
         instructions.append(inst)
     return instructions
 
-def response(prompts):
-    results = []
-    for prompt in prompts:
-        input_text = prompt
-        # Tokenize the input text
-        model_inputs = tokenizer.encode_plus(
-            input_text, return_tensors="pt").to(device)
-
-    # Response generation
-        generated_ids = model.generate(
-            input_ids=model_inputs["input_ids"],
-            max_new_tokens=max_new_tokens,
-            pad_token_id=tokenizer.eos_token_id,
-            no_repeat_ngram_size=2, # helps to avoid repetitions
-        )
-    # Decode the generated response to text
-        response_text = tokenizer.decode(
-            generated_ids[0], skip_special_tokens=True)
-        
-        results.append(response_text)
-    return results
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -144,7 +121,7 @@ if __name__ == "__main__":
         seed_tasks = [t for t in seed_tasks if t["is_classification"]]
     seed_instructions = [t["instruction"] for t in seed_tasks]
     print(f"Loaded {len(seed_instructions)} human-written seed instructions")
-    
+
     os.makedirs(args.batch_dir, exist_ok=True)
     request_idx = 0
     # load the LM-generated instructions
@@ -155,11 +132,11 @@ if __name__ == "__main__":
                 instruction_info = json.loads(line)
                 machine_instructions.append(instruction_info["instruction"])
                 request_idx = instruction_info["request_idx"] + 1
-        print(f"Loaded {len(machine_instructions)} machine-generated instructions")
+        print(f"Loaded {len(machine_instructions)} machine-generated instructions" )
 
     # similarities = {}
     scorer = rouge_scorer.RougeScorer(["rougeL"], use_stemmer=False)
-    
+
     # now let's generate new instructions!
     progress_bar = tqdm.tqdm(total=args.num_instructions_to_generate)
     if machine_instructions:
@@ -167,19 +144,20 @@ if __name__ == "__main__":
 
     with open(os.path.join(args.batch_dir, "machine_generated_instructions.jsonl"), "a") as fout:
         while len(machine_instructions) < args.num_instructions_to_generate:
-            prompts = []
+            results = []
             for _ in range(args.request_batch_size):
                 # sample machine instructions from the pool
                 prompt_instructions = sample_machine_instructions(
-                    machine_instructions, 
+                    machine_instructions,
                     similarities=None,
                     n=2)
                 # sample human instructions from the pool
-                prompt_instructions += random.sample(seed_instructions, args.num_prompt_instructions - len(prompt_instructions))
+                prompt_instructions += random.sample(
+                    seed_instructions, args.num_prompt_instructions - len(prompt_instructions))
                 random.shuffle(prompt_instructions)
-                prompt = encode_prompt(prompt_instructions, classification=args.use_clf_seed_tasks_only)
-                prompts.append(prompt)
-            results = response(prompts)
+                prompt = encode_prompt(
+                    prompt_instructions, classification=args.use_clf_seed_tasks_only)
+                results.append(response(prompt, 64))
             instructions = []
             for result in results:
                 new_instructions = post_process_response(result)
@@ -187,15 +165,17 @@ if __name__ == "__main__":
 
             for inst in instructions:
                 with Pool(4) as p:
-                    rouge_scores = p.map(partial(scorer.score, inst), seed_instructions + machine_instructions)
-                rouge_scores = [score["rougeL"].fmeasure for score in rouge_scores]
+                    rouge_scores = p.map(
+                        partial(scorer.score, inst), seed_instructions + machine_instructions)
+                rouge_scores = [
+                    score["rougeL"].fmeasure for score in rouge_scores]
                 # rouge_scores = [scorer.score(inst, e_inst)["rougeL"].fmeasure for e_inst in human_instructions + machine_instructions]
                 if max(rouge_scores) > 0.7:
                     continue
                 all_instructions = seed_instructions + machine_instructions
                 most_similar_instructions = {
-                        all_instructions[i] : rouge_scores[i] for i in np.argsort(rouge_scores)[-10:][::-1]
-                    }
+                    all_instructions[i]: rouge_scores[i] for i in np.argsort(rouge_scores)[-10:][::-1]
+                }
                 machine_instructions.append(inst)
                 fout.write(json.dumps({
                     "instruction": inst,

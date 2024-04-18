@@ -1,6 +1,13 @@
-batch_dir=data/model_generations/
+batch_dir=/home/jiahe/LLMs/lima/my_self_instruct/data/model_generations/
+output=/home/jiahe/LLMs/lima/my_self_instruct/data/model_generations/is_clf_or_not_test.jsonl
 
-python self_instruct/identify_clf_or_not.py \
+if [ -f "$output" ]; then
+    > $output
+fi
+
+python /home/jiahe/LLMs/lima/my_self_instruct/identify_clf_or_not.py \
     --batch_dir ${batch_dir} \
-    --engine "davinci" \
-    --request_batch_size 5
+    --num_instructions 175 \
+    --template template_2 \
+    --request_batch_size 20 \
+    

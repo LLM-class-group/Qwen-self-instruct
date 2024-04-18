@@ -1,0 +1,98 @@
+{"instruction": "Write a python program that takes a sentence as input and outputs the number of words in it.", "is_classification": "no"}
+{"instruction": "Identify the most common words used in a given text.", "is_classification": "no"}
+{"instruction": "Write a short story about a person who is a superhero.", "is_classification": "no"}
+{"instruction": "Create a new word that is not in this list.", "is_classification": "no"}
+{"instruction": "Create a list of 10 words that are related to the word \"happy\".", "is_classification": "no"}
+{"instruction": "Write a short story about a person who is trying to find their place in life.", "is_classification": "no"}
+{"instruction": "Describe a situation where you have to make a difficult decision.", "is_classification": "no"}
+{"instruction": "Create a list of 10 words that can be used to describe a person who is always polite.", "is_classification": "no"}
+{"instruction": "What is the most important thing you have learned from your experience so far?", "is_classification": "no"}
+{"instruction": "Generate a list of all the words that are not present in the given list.", "is_classification": "no"}
+{"instruction": "List the top 5 most popular programming languages.", "is_classification": "no"}
+{"instruction": "Describe a place that you have visited and why you like it.", "is_classification": "no"}
+{"instruction": "Rewrite the following sentence in a different way.", "is_classification": "no"}
+{"instruction": "Describe a famous person you admire.", "is_classification": "no"}
+{"instruction": "List 5 things that i should do before going to bed.", "is_classification": "no"}
+{"instruction": "Generate a random number between 0 and 5 and print it.", "is_classification": "no"}
+{"instruction": "Write a program that takes a list of numbers and returns the sum of all the numbers.", "is_classification": "no"}
+{"instruction": "Create a function that will return a random number between 0 and 9.", "is_classification": "no"}
+{"instruction": "Describe a person who has a strong sense of responsibility.", "is_classification": "no"}
+{"instruction": "Explain the difference between a \"good\" and a bad memory.", "is_classification": "no"}
+{"instruction": "Describe a place where you feel safe and secure.", "is_classification": "no"}
+{"instruction": "Create a new word that means \"to be in a hurry\".", "is_classification": "no"}
+{"instruction": "Describe a fictional character who has a unique personality.", "is_classification": "no"}
+{"instruction": "Generate a list of 15 words that start with 's'.", "is_classification": "no"}
+{"instruction": "List the top 5 most common words in a given sentence.", "is_classification": "no"}
+{"instruction": "Create a function that will take a string and return the number of words it contains.", "is_classification": "no"}
+{"instruction": "Write a short story about a person who is trying to find a way out of a difficult situation.", "is_classification": "no"}
+{"instruction": "Design a logo for an online store that sells handmade crafts.", "is_classification": "no"}
+{"instruction": "Describe a situation where you had to make a decision that was not easy to do.", "is_classification": "no"}
+{"instruction": "Imagine you are a famous person and you have to write a speech about your life.", "is_classification": "no"}
+{"instruction": "List the top 10 most popular movies of all time.", "is_classification": "no"}
+{"instruction": "Write a program that takes a string and returns the longest word in it.", "is_classification": "no"}
+{"instruction": "Create a function that will return the number of times a word appears in an array of strings.", "is_classification": "no"}
+{"instruction": "List the steps to make a cake.", "is_classification": "no"}
+{"instruction": "List the top 5 most popular words in google search results.", "is_classification": "no"}
+{"instruction": "What is the most important thing to you in life?", "is_classification": "no"}
+{"instruction": "Create a list of the 15 best books of all time.", "is_classification": "no"}
+{"instruction": "Describe a place that you would like to visit.", "is_classification": "no"}
+{"instruction": "Create a list of 15 words that describe a specific feeling or emotion.", "is_classification": "no"}
+{"instruction": "Describe a person who is very good at their job.", "is_classification": "no"}
+{"instruction": "Create a function that will return the longest word in a given sentence.", "is_classification": "no"}
+{"instruction": "Generate a random sentence with the words \"cat\", \"dog\", and \"mouse\".", "is_classification": "no"}
+{"instruction": "Describe a situation where you were in a difficult situation and how you handled it.", "is_classification": "no"}
+{"instruction": "List 5 things you would do differently if you were in your 20s.", "is_classification": "no"}
+{"instruction": "Describe the process of making a new product.", "is_classification": "no"}
+{"instruction": "What is the difference between a computer and a smartphone?", "is_classification": "no"}
+{"instruction": "Generate a list of 5 words which can be used to describe a place.", "is_classification": "no"}
+{"instruction": "How do you make a cake?", "is_classification": "no"}
+{"instruction": "How can you improve your english pronunciation?", "is_classification": "no"}
+{"instruction": "Write a function that takes a string and returns the number of vowels in the string.", "is_classification": "no"}
+{"instruction": "A function to find the longest word in an array of words.", "is_classification": "no"}
+{"instruction": "What is the capital of france?", "is_classification": "no"}
+{"instruction": "List 5 things you can do to improve your english.", "is_classification": "no"}
+{"instruction": "Find the number of words in an input sentence that are not in alphabetical order.", "is_classification": "no"}
+{"instruction": "Explain the concept of a turing machine.", "is_classification": "no"}
+{"instruction": "I have a problem with my math.", "is_classification": "no"}
+{"instruction": "Create a list of 100 random numbers between 0 and 99.", "is_classification": "no"}
+{"instruction": "List the top 5 most common mistakes people make when writing a report.", "is_classification": "no"}
+{"instruction": "Create a new word that is not present in any of the given words.", "is_classification": "no"}
+{"instruction": "Create a program that can detect if a sentence contains a specific word.", "is_classification": "no"}
+{"instruction": "Create a list of 10 things that you are grateful for.", "is_classification": "no"}
+{"instruction": "In a given string, count the total number vowels and consonants.", "is_classification": "no"}
+{"instruction": "Create a list of 10 words that are not commonly used in english.", "is_classification": "no"}
+{"instruction": "Create a list of all possible combinations of 3 letters.", "is_classification": "no"}
+{"instruction": "Find the largest number in a given list.", "is_classification": "no"}
+{"instruction": "Explain the difference between a list and a tuple in python.", "is_classification": "no"}
+{"instruction": "How can you use a for loop to iterate over a dictionary?", "is_classification": "no"}
+{"instruction": "Generate a random sentence using the given words.", "is_classification": "no"}
+{"instruction": "I have a question about the word \"happiness\".", "is_classification": "no"}
+{"instruction": "Given a list of words, find the longest word.", "is_classification": "no"}
+{"instruction": "What is the best way for you to learn a new language?", "is_classification": "no"}
+{"instruction": "Find the longest word in a given string.", "is_classification": "no"}
+{"instruction": "Make a list of the top 10 most common words.", "is_classification": "no"}
+{"instruction": "Describe a day in the life of a 10 year old.", "is_classification": "no"}
+{"instruction": "What is the most popular type of music played in the united states?", "is_classification": "no"}
+{"instruction": "Create a new word and write a sentence using it.", "is_classification": "no"}
+{"instruction": "Create a function that will take a string and return a dictionary with each word as a key and its frequency as the value.", "is_classification": "no"}
+{"instruction": "Create a list of all the countries in a specific region.", "is_classification": "no"}
+{"instruction": "Write a program that can identify the most common words in an article.", "is_classification": "no"}
+{"instruction": "Make a prediction about the weather for the next 24 hours.", "is_classification": "no"}
+{"instruction": "Find the most common word in an article.", "is_classification": "no"}
+{"instruction": "Identify the main idea of a paragraph.", "is_classification": "no"}
+{"instruction": "Write a code that can solve the following math problem: 2 + 3 * 4 - 5 / 6.", "is_classification": "no"}
+{"instruction": "Use the comments as an example to write a function that takes a number and returns the factorial of that number.", "is_classification": "no"}
+{"instruction": "Describe a person who is very intelligent, but also very lazy.", "is_classification": "no"}
+{"instruction": "How can i improve my english grammar?", "is_classification": "no"}
+{"instruction": "Identify the most important words for a task.", "is_classification": "no"}
+{"instruction": "Generate a random number between 1 and 50.", "is_classification": "no"}
+{"instruction": "Write a function that takes a list of strings and returns a new list with all the strings that have the same length as the longest string in that list.", "is_classification": "no"}
+{"instruction": "Find the most frequent words and their frequency in a text.", "is_classification": "no"}
+{"instruction": "Create a poem about nature.", "is_classification": "no"}
+{"instruction": "Generate a list of 15 random words from a given set of vocabulary words.", "is_classification": "no"}
+{"instruction": "The task is to find the number of times a word appears in all articles in this dataset.", "is_classification": "no"}
+{"instruction": "How do you feel about the current state of the world?", "is_classification": "no"}
+{"instruction": "Rewrite the sentence \"i am a student\" in passive voice.", "is_classification": "no"}
+{"instruction": "Use the word \"in\" to describe a place.", "is_classification": "no"}
+{"instruction": "Create a new list with the same items as the original list, but with some items removed.", "is_classification": "no"}
+{"instruction": "Describe a person who is a good listener.", "is_classification": "no"}

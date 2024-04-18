@@ -150,13 +150,19 @@ Output:
 - Side Plank
 - Sit-ups
 
+Endinstance.
+
 Task: Extract all the country names in the paragraph, list them separated by commas.
 Example 1
 Paragraph: Dr. No is the sixth novel by the English author Ian Fleming to feature his British Secret Service agent James Bond. Written at Fleming's Goldeneye estate in Jamaica, it was first published in the United Kingdom by Jonathan Cape in 1958. In the novel Bond looks into the disappearance in Jamaica of two fellow MI6 operatives who had been investigating Doctor No. Bond travels to No's Caribbean island and meets Honeychile Rider, who is there to collect shells. They are captured and taken to a luxurious facility carved into a mountain. The character of Doctor No, the son of a German missionary and a Chinese woman, was influenced by Sax Rohmer's Fu Manchu stories. Dr. No was the first of Fleming's novels to face widespread negative reviews in Britain, but it was received more favourably in the United States.
 Output: English, British, Jamaica, the United Kingdom, German, Chinese, Britain, the United States.
 
+Endinstance.
+
 Task: Converting 85 F to Celsius.
 Output: 85°F = 29.44°C
+
+Endinstance.
 
 Task: Sort the given list ascendingly. 
 Example 1
@@ -166,6 +172,8 @@ Example 2
 Input 2 - List: [9.99, 10, -5, -1000, 5e6, 999]
 Output: [-1000, -5, 9.99, 10, 999, 5e6]
 
+Endinstance.
+
 Task: Suggest a better and more professional rephrasing of the following sentence.
 Example 1
 Sentence: This house is surprisingly not constructed very well, and you probably need more money to fix it after you buy it. If you ask me, I would suggest you to consider other candidates.
@@ -174,6 +182,8 @@ Example 2
 Sentence: Just so you know, we did an experiment last week and found really surprising results - language model can improve itself!
 Output: Our experiments last week demonstrated surprising results, proving that the language model can improve itself.
 
+Endinstance.
+
 Task: Read the following paragraph and answer a math question about the paragraph. You need to write out the calculation for getting the final answer.
 Example 1
 Paragraph: Gun violence in the United States results in tens of thousands of deaths and injuries annually, and was the leading cause of death for children 19 and younger in 2020. In 2018, the most recent year for which data are available as of 2021, the Centers for Disease Control and Prevention's (CDC) National Center for Health Statistics reports 38,390 deaths by firearm, of which 24,432 were by suicide. The rate of firearm deaths per 100,000 people rose from 10.3 per 100,000 in 1999 to 12 per 100,000 in 2017, with 109 people dying per day or about 14,542 homicides in total, being 11.9 per 100,000 in 2018. In 2010, there were 19,392 firearm-related suicides, and 11,078 firearm-related homicides in the U.S. In 2010, 358 murders were reported involving a rifle while 6,009 were reported involving a handgun; another 1,939 were reported with an unspecified type of firearm. In 2011, a total of 478,400 fatal and nonfatal violent crimes were committed with a firearm.
@@ -181,6 +191,8 @@ Question: How many more firearm-related deaths were there in 2018 compared to 20
 Output:
 38390 - (19392 + 11078) = 38390 - 30470 = 7920. 
 So, in 2018, there were 7920 more deaths by firearm than in 2010.
+
+Endinstance.
 
 Task: Write Python code to solve this leetcode problem.
 Example 1
@@ -203,6 +215,8 @@ class Solution(object):
             n = n.next
         return root.next
 
+Endinstance.       
+
 Task: Solve the equation and find the value of X. Show your steps.
 Example 1
 Equation: 10X + 5 = 10
@@ -210,6 +224,8 @@ Output: 10X = 5,  X = 0.5
 Example 2
 Equation: X + Y + 120 = 100
 Output: X + Y = -20, X = -20 - Y
+
+Endinstance.
 
 Task: Write a program to compute the sum of integers from k to n.
 Output:
@@ -219,6 +235,8 @@ def sum(k, n):
         sum += i
     return sum
 
+Endinstance.
+
 Task: Select the oldest person from the given list.
 Example 1
 List: George Washington, Confucius, Michael Jordan, Michelangelo
@@ -227,11 +245,15 @@ Example 2
 List: Alan Turing, Geoffrey Hinton, Yann LeCun, Yoshua Bengio
 Output: Alan Turing
 
+Endinstance.
+
 Task: Turn down a job offer by sending an email to a recruiter explaining the reason.
 Output: Hi  [Recruiter],
 Thank you so much for the generous offer to join your team. As we discussed, I’ve admired the company for a number of years, and am a proud endorser of its products. However, after further consideration of where I currently am in my career, I’ve decided to accept an offer at another company.
 I would love to stay in touch with you and have already started following you on [Social Media Platform]. Again, thank you so much for your time and consideration.
 Thanks again,
 [Your Name]
+
+Endinstance.
 
 Task:'''

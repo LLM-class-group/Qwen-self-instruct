@@ -1,0 +1,104 @@
+{"instruction": "Write a python program that takes a sentence as input and outputs the number of words in it.", "raw_instances": ""}
+{"instruction": "Identify the most common words used in a given text.", "raw_instances": ""}
+{"instruction": "Write a short story about a person who is a superhero.", "raw_instances": ""}
+{"instruction": "Create a new word that is not in this list.", "raw_instances": ""}
+{"instruction": "Create a list of 10 words that are related to the word \"happy\".", "raw_instances": ""}
+{"instruction": "Write a short story about a person who is trying to find their place in life.", "raw_instances": ""}
+{"instruction": "Describe a situation where you have to make a difficult decision.", "raw_instances": ""}
+{"instruction": "Create a list of 10 words that can be used to describe a person who is always polite.", "raw_instances": ""}
+{"instruction": "What is the most important thing you have learned from your experience so far?", "raw_instances": ""}
+{"instruction": "Generate a list of all the words that are not present in the given list.", "raw_instances": ""}
+{"instruction": "List the top 5 most popular programming languages.", "raw_instances": ""}
+{"instruction": "Describe a place that you have visited and why you like it.", "raw_instances": ""}
+{"instruction": "Rewrite the following sentence in a different way.", "raw_instances": ""}
+{"instruction": "Describe a famous person you admire.", "raw_instances": ""}
+{"instruction": "List 5 things that i should do before going to bed.", "raw_instances": ""}
+{"instruction": "Generate a random number between 0 and 5 and print it.", "raw_instances": ""}
+{"instruction": "Write a program that takes a list of numbers and returns the sum of all the numbers.", "raw_instances": ""}
+{"instruction": "Create a function that will return a random number between 0 and 9.", "raw_instances": ""}
+{"instruction": "Describe a person who has a strong sense of responsibility.", "raw_instances": ""}
+{"instruction": "Explain the difference between a \"good\" and a bad memory.", "raw_instances": ""}
+{"instruction": "Describe a place where you feel safe and secure.", "raw_instances": ""}
+{"instruction": "Create a new word that means \"to be in a hurry\".", "raw_instances": ""}
+{"instruction": "Describe a fictional character who has a unique personality.", "raw_instances": ""}
+{"instruction": "Generate a list of 15 words that start with 's'.", "raw_instances": ""}
+{"instruction": "List the top 5 most common words in a given sentence.", "raw_instances": ""}
+{"instruction": "Create a function that will take a string and return the number of words it contains.", "raw_instances": ""}
+{"instruction": "Write a short story about a person who is trying to find a way out of a difficult situation.", "raw_instances": ""}
+{"instruction": "Design a logo for an online store that sells handmade crafts.", "raw_instances": ""}
+{"instruction": "Describe a situation where you had to make a decision that was not easy to do.", "raw_instances": ""}
+{"instruction": "Imagine you are a famous person and you have to write a speech about your life.", "raw_instances": ""}
+{"instruction": "List the top 10 most popular movies of all time.", "raw_instances": ""}
+{"instruction": "Write a program that takes a string and returns the longest word in it.", "raw_instances": ""}
+{"instruction": "Create a function that will return the number of times a word appears in an array of strings.", "raw_instances": ""}
+{"instruction": "List the steps to make a cake.", "raw_instances": ""}
+{"instruction": "List the top 5 most popular words in google search results.", "raw_instances": ""}
+{"instruction": "What is the most important thing to you in life?", "raw_instances": ""}
+{"instruction": "Create a list of the 15 best books of all time.", "raw_instances": ""}
+{"instruction": "Describe a place that you would like to visit.", "raw_instances": ""}
+{"instruction": "Create a list of 15 words that describe a specific feeling or emotion.", "raw_instances": ""}
+{"instruction": "Describe a person who is very good at their job.", "raw_instances": ""}
+{"instruction": "Create a function that will return the longest word in a given sentence.", "raw_instances": ""}
+{"instruction": "Generate a random sentence with the words \"cat\", \"dog\", and \"mouse\".", "raw_instances": ""}
+{"instruction": "Describe a situation where you were in a difficult situation and how you handled it.", "raw_instances": ""}
+{"instruction": "List 5 things you would do differently if you were in your 20s.", "raw_instances": ""}
+{"instruction": "Describe the process of making a new product.", "raw_instances": ""}
+{"instruction": "What is the difference between a computer and a smartphone?", "raw_instances": ""}
+{"instruction": "Generate a list of 5 words which can be used to describe a place.", "raw_instances": ""}
+{"instruction": "How do you make a cake?", "raw_instances": ""}
+{"instruction": "How can you improve your english pronunciation?", "raw_instances": ""}
+{"instruction": "Write a function that takes a string and returns the number of vowels in the string.", "raw_instances": ""}
+{"instruction": "A function to find the longest word in an array of words.", "raw_instances": ""}
+{"instruction": "What is the capital of france?", "raw_instances": ""}
+{"instruction": "List 5 things you can do to improve your english.", "raw_instances": ""}
+{"instruction": "Find the number of words in an input sentence that are not in alphabetical order.", "raw_instances": ""}
+{"instruction": "Explain the concept of a turing machine.", "raw_instances": ""}
+{"instruction": "I have a problem with my math.", "raw_instances": ""}
+{"instruction": "Create a list of 100 random numbers between 0 and 99.", "raw_instances": ""}
+{"instruction": "List the top 5 most common mistakes people make when writing a report.", "raw_instances": ""}
+{"instruction": "Create a new word that is not present in any of the given words.", "raw_instances": ""}
+{"instruction": "Create a program that can detect if a sentence contains a specific word.", "raw_instances": ""}
+{"instruction": "Create a list of 10 things that you are grateful for.", "raw_instances": ""}
+{"instruction": "In a given string, count the total number vowels and consonants.", "raw_instances": ""}
+{"instruction": "Create a list of 10 words that are not commonly used in english.", "raw_instances": ""}
+{"instruction": "Create a list of all possible combinations of 3 letters.", "raw_instances": ""}
+{"instruction": "Find the largest number in a given list.", "raw_instances": ""}
+{"instruction": "Explain the difference between a list and a tuple in python.", "raw_instances": ""}
+{"instruction": "How can you use a for loop to iterate over a dictionary?", "raw_instances": ""}
+{"instruction": "Generate a random sentence using the given words.", "raw_instances": ""}
+{"instruction": "I have a question about the word \"happiness\".", "raw_instances": ""}
+{"instruction": "Given a list of words, find the longest word.", "raw_instances": ""}
+{"instruction": "What is the best way for you to learn a new language?", "raw_instances": ""}
+{"instruction": "Find the longest word in a given string.", "raw_instances": ""}
+{"instruction": "Make a list of the top 10 most common words.", "raw_instances": ""}
+{"instruction": "Describe a day in the life of a 10 year old.", "raw_instances": ""}
+{"instruction": "What is the most popular type of music played in the united states?", "raw_instances": ""}
+{"instruction": "Create a new word and write a sentence using it.", "raw_instances": ""}
+{"instruction": "Create a function that will take a string and return a dictionary with each word as a key and its frequency as the value.", "raw_instances": ""}
+{"instruction": "Create a list of all the countries in a specific region.", "raw_instances": ""}
+{"instruction": "Write a program that can identify the most common words in an article.", "raw_instances": ""}
+{"instruction": "Make a prediction about the weather for the next 24 hours.", "raw_instances": ""}
+{"instruction": "Find the most common word in an article.", "raw_instances": ""}
+{"instruction": "Identify the main idea of a paragraph.", "raw_instances": ""}
+{"instruction": "Write a code that can solve the following math problem: 2 + 3 * 4 - 5 / 6.", "raw_instances": ""}
+{"instruction": "Use the comments as an example to write a function that takes a number and returns the factorial of that number.", "raw_instances": ""}
+{"instruction": "Describe a person who is very intelligent, but also very lazy.", "raw_instances": ""}
+{"instruction": "How can i improve my english grammar?", "raw_instances": ""}
+{"instruction": "Identify the most important words for a task.", "raw_instances": ""}
+{"instruction": "Generate a random number between 1 and 50.", "raw_instances": ""}
+{"instruction": "Write a function that takes a list of strings and returns a new list with all the strings that have the same length as the longest string in that list.", "raw_instances": ""}
+{"instruction": "Find the most frequent words and their frequency in a text.", "raw_instances": ""}
+{"instruction": "Create a poem about nature.", "raw_instances": ""}
+{"instruction": "Generate a list of 15 random words from a given set of vocabulary words.", "raw_instances": ""}
+{"instruction": "The task is to find the number of times a word appears in all articles in this dataset.", "raw_instances": ""}
+{"instruction": "A text is given, you have to determine if it is a valid sentence or not.", "raw_instances": ""}
+{"instruction": "How do you feel about the current state of the world?", "raw_instances": ""}
+{"instruction": "Why do people like to play games?", "raw_instances": ""}
+{"instruction": "Rewrite the sentence \"i am a student\" in passive voice.", "raw_instances": ""}
+{"instruction": "Use the word \"in\" to describe a place.", "raw_instances": ""}
+{"instruction": "Create a new list with the same items as the original list, but with some items removed.", "raw_instances": ""}
+{"instruction": "Describe a person who is a good listener.", "raw_instances": ""}
+e voice.", "raw_instances": ""}
+{"instruction": "Use the word \"in\" to describe a place.", "raw_instances": ""}
+{"instruction": "Create a new list with the same items as the original list, but with some items removed.", "raw_instances": ""}
+{"instruction": "Describe a person who is a good listener.", "raw_instances": ""}
