@@ -45,6 +45,6 @@ def response(prompt, max_len=128, model_id=0):
             json.dump(log_entry, log_file)
             log_file.write("\n")  # Add newline to separate entries
     except Exception as e:
-        print(f"Warning: Could not write free api response to log file: {e}")
+        print(f"Warning: Could not write groq api response to log file: {e}")
 
     return response
