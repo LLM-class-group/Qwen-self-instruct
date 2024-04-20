@@ -1,4 +1,4 @@
-batch_dir=~/LLMs/lima/qwen_self_instruct/data/model_generations/
+batch_dir=$DATA_GEN_PATH
 
 python3 ~/LLMs/lima/qwen_self_instruct/bootstrap_instructions.py \
     --batch_dir ${batch_dir} \

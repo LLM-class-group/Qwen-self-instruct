@@ -10,10 +10,6 @@ echo "-------------------------Running generate_instructions: ------------------
 ./generate_instructions.sh 
 echo "-------------------------Running classifications: -------------------------"
 ./is_clf_or_not.sh 
-echo "-------------------------Running generate_instances: -------------------------"
-./generate_instances.sh 
-echo "-------------------------Running prepare_for_finetuning: -------------------------"
-./prepare_for_finetuning.sh 
-echo "-------------------------finish pipeline-------------------------"
+echo "-------------------------finish pipeline1 -----------------------------"
 
 date # print end time

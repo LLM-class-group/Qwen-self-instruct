@@ -3,6 +3,7 @@ import json
 import random
 import tqdm
 import re
+import time
 import argparse
 import pandas as pd
 from collections import OrderedDict
@@ -11,7 +12,7 @@ from templates.clf_task_template_short import template_2
 from api.qwen_1__8B_api import response
 
 
-random.seed(42)
+random.seed(time.time())
 
 sample_prompts = ""
 

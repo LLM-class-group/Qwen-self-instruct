@@ -2,6 +2,7 @@ import os
 import json
 import random
 import tqdm
+import time
 import re
 import argparse
 import pandas as pd
@@ -9,7 +10,7 @@ from collections import OrderedDict
 from templates.instance_gen_template_short import output_first_template_for_clf, input_first_template_for_gen
 from api.qwen_7B_api import response
 
-random.seed(42)
+random.seed(time.time())
 
 os.environ["TOKENIZERS_PARALLELISM"] = "true"
 
@@ -62,7 +63,7 @@ def parse_args():
     return parser.parse_args()
 
 
-def filter_no_endword(result, endword1="End",endword2="end"):
+def filter_no_endword(result, endword1="End", endword2="end"):
     if endword1 in result:
         return result[:result.index(endword1)]
     elif endword2 in result:
@@ -74,7 +75,7 @@ def filter_no_endword(result, endword1="End",endword2="end"):
 if __name__ == '__main__':
     args = parse_args()
 
-    with open(os.path.join(args.batch_dir, args.input_file)) as fin: #is_clf_or_not.jsonl
+    with open(os.path.join(args.batch_dir, args.input_file)) as fin:  # is_clf_or_not.jsonl
         lines = fin.readlines()
         if args.num_instructions is not None:
             lines = lines[:args.num_instructions]

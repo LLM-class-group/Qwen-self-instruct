@@ -15,14 +15,19 @@ print(f"Using device: {device}")
 
 model_name = f"qwen/Qwen1.5-1.8B"
 
-model = AutoModelForCausalLM.from_pretrained(
-    model_name, torch_dtype=torch.bfloat16).to(device)
+if cuda_available:
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name, torch_dtype=torch.bfloat16, device_map="auto", attn_implementation="flash_attention_2",
+    ).to(device)
+else:
+    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 print(f"Model {model_name} loaded in {device} successfully!")
 
 
-def response(prompt, max_len=128, remove_prompt=True):
+def response(prompt, max_len=128):
     input_text = prompt
 
     # Tokenize the input text
@@ -37,14 +42,13 @@ def response(prompt, max_len=128, remove_prompt=True):
         no_repeat_ngram_size=2,  # helps to avoid repetitions
     )
 
+    # Remove the input text from the generated response
+    generated_ids = [
+        output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+    ]
+
     # Decode the generated response to text
     response_text = tokenizer.decode(
         generated_ids[0], skip_special_tokens=True)
-
-    if (remove_prompt):
-        if response_text.startswith(prompt):
-            response_text = response_text[len(prompt):].lstrip()
-        else:
-            print("Remove prompt error: prompt not found in response")
 
     return response_text

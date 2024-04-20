@@ -1,5 +1,5 @@
-batch_dir=~/LLMs/lima/qwen_self_instruct/data/model_generations/
-output=~/LLMs/lima/qwen_self_instruct/data/model_generations/is_clf_or_not.jsonl
+batch_dir=$DATA_GEN_PATH
+output=${batch_dir}is_clf_or_not.jsonl
 
 if [ -f "$output" ]; then
     > $output

@@ -5,6 +5,7 @@ import re
 import string
 import tqdm
 import argparse
+import time
 import numpy as np
 import pandas as pd
 from multiprocessing import Pool
@@ -13,7 +14,7 @@ from rouge_score import rouge_scorer
 from api.qwen_1__8B_api import response
 
 
-random.seed(4)
+random.seed(time.time())
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
