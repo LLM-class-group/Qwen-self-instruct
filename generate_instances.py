@@ -72,6 +72,14 @@ def filter_no_endword(result, endword1="End", endword2="end"):
         return None
 
 
+def delete_after(result, deleteword="Task"):
+    if result:
+        if deleteword in result:
+            return result[:result.index(deleteword)]
+        else : return result
+    return None
+
+
 if __name__ == '__main__':
     args = parse_args()
 
@@ -137,6 +145,7 @@ if __name__ == '__main__':
                 for i in range(len(batch)):
                     data = batch[i]
                     results[i] = filter_no_endword(results[i])
+                    results[i] = delete_after(results[i])
                     if results[i] is not None:
                         data["raw_instances"] = results[i]
                     else:

@@ -52,3 +52,11 @@ def response(prompt, max_len=128):
         generated_ids[0], skip_special_tokens=True)
 
     return response_text
+
+
+def batch_response(prompts, max_len=128):
+    responses = []
+    for prompt in prompts:
+        responses.append(response(prompt, max_len))
+
+    return responses

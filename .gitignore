@@ -1,4 +1,4 @@
 __pycache__/
 api/log/
-data/model_generations?/
+# data/model_generations?/
 *.log
