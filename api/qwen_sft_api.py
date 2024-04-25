@@ -3,7 +3,7 @@ import torch
 
 device = "cuda"
 
-model_name = "qwen/Qwen1.5-0.5B-Chat"
+model_name = "/home/jiahe/LLMs/lima/LLaMA-Factory/checkpoints/qwen_sft"
 
 model = AutoModelForCausalLM.from_pretrained(
     model_name, torch_dtype=torch.bfloat16, device_map="auto", attn_implementation="flash_attention_2",
